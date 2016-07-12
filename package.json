@@ -1,6 +1,6 @@
 {
   "name": "ducktape",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Makes sure your projects stick together using Tape tests.",
   "main": "index.js",
   "bin": {
