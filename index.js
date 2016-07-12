@@ -5,9 +5,13 @@ const test = require('tape')
 
 fs.readFile('package.json', (err, data) => {
   if (err) { throw err }
+
   const pkg = JSON.parse(data)
-  const deps = pkg.dependencies
-  var cnt = 0
+  const deps = pkg.dependencies || {}
+  const ddeps = pkg.devDependecies || {}
+  let cnt = 0
+
+  for (var i in ddeps) { deps[i] = ddeps[i] }
 
   test('ducktape', (t) => {
     t.ok(pkg.name, `name: ${pkg.name}`)
@@ -38,7 +42,7 @@ fs.readFile('package.json', (err, data) => {
         if (requiredVersion) {
           exec('readFile', deppackage, (data) => {
             const version = JSON.parse(data).version
-            t.ok(semver.satisfies(version, requiredVersion), `${pkg.name}@${requiredVersion} (${version})`)
+            t.ok(semver.satisfies(version, requiredVersion), `dependencies: ${pkg.name}@${requiredVersion} (${version})`)
           })
         }
       })
