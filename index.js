@@ -17,7 +17,7 @@ fs.readFile('package.json', (err, data) => {
     t.ok(pkg.name, `name: ${pkg.name}`)
     t.ok(pkg.description, `description: ${pkg.description}`)
     t.ok(semver.valid(pkg.version), `semver version: ${pkg.version}`)
-    t.ok(pkg.scripts.test, `description: ${pkg.scripts.test}`)
+    t.ok(pkg.scripts.test, `test: ${pkg.scripts.test}`)
     t.ok(pkg.scripts.travis, `travis: ${pkg.scripts.travis}`)
     t.ok(pkg.scripts.cover, `cover: ${pkg.scripts.cover}`)
 
