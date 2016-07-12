@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Makes sure your projects stick together using Tape tests.",
   "main": "index.js",
+  "bin": {
+    "ducktape": "bin/cmd.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +13,14 @@
     "type": "git",
     "url": "git+https://github.com/vigour-io/ducktape.git"
   },
-  "author": "",
+  "author": "Youri Daamen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vigour-io/ducktape/issues"
   },
-  "homepage": "https://github.com/vigour-io/ducktape#readme"
+  "homepage": "https://github.com/vigour-io/ducktape#readme",
+  "dependencies": {
+    "semver": "^5.2.0",
+    "tape": "^4.6.0"
+  }
 }
