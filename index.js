@@ -9,22 +9,14 @@ fs.readFile('package.json', (err, data) => {
   const deps = pkg.dependencies
   var cnt = 0
 
-  test('npm fields', (t) => {
+  test('ducktape', (t) => {
     t.ok(pkg.name, `name: ${pkg.name}`)
     t.ok(pkg.description, `description: ${pkg.description}`)
     t.ok(semver.valid(pkg.version), `semver version: ${pkg.version}`)
-    t.end()
-  })
-
-  test('npm scripts', (t) => {
-    t.ok(pkg.scripts.start, `start: ${pkg.scripts.start}`)
     t.ok(pkg.scripts.test, `description: ${pkg.scripts.test}`)
     t.ok(pkg.scripts.travis, `travis: ${pkg.scripts.travis}`)
     t.ok(pkg.scripts.cover, `cover: ${pkg.scripts.cover}`)
-    t.end()
-  })
 
-  test('npm dependencies', (t) => {
     exec('readdir', 'node_modules', (files) => {
       for (let i = files.length - 1; i >= 0; i--) {
         const module = files[i]
