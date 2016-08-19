@@ -8,7 +8,7 @@ fs.readFile('package.json', (err, data) => {
 
   const pkg = JSON.parse(data)
   const deps = pkg.dependencies || {}
-  const ddeps = pkg.devDependecies || {}
+  const ddeps = pkg.devDependencies || {}
   let cnt = 0
 
   for (var i in ddeps) { deps[i] = ddeps[i] }
